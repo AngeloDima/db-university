@@ -1,0 +1,63 @@
+
+Snack 1
+
+SELECT *
+FROM `students`
+WHERE `date_of_birth` BETWEEN '1990-01-01' AND '1990-12-31'
+
+
+
+Snack 2
+
+SELECT *
+FROM `courses`
+WHERE cfu > 10
+
+
+
+Snack 3
+
+SELECT *
+FROM `students`
+WHERE YEAR (`date_of_birth`) < YEAR(CURRENT_TIMESTAMP) - 30;
+
+
+
+Snack 4
+
+SELECT *  
+FROM `courses`
+WHERE `period` = 'I semestre'
+AND `year` = 1;
+
+
+
+Snack 5
+
+SELECT *  
+FROM `exams`
+WHERE HOUR(`hour`) >= 14
+AND `date` = '2020-06-20';
+
+
+
+Snack 6
+
+SELECT * 
+FROM `degrees` 
+WHERE `level` = 'magistrale';
+
+
+
+Snack 7
+
+SELECT COUNT(`id`) FROM `departments`
+
+
+
+Snack 8
+
+SELECT COUNT(*) AS `numero_insegnanti`
+FROM `teachers`
+WHERE `phone` IS NULL
+
