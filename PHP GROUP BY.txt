@@ -1,0 +1,27 @@
+SELECT YEAR(`enrolment_date`), COUNT(*) AS `num_students`
+FROM `students`
+GROUP BY YEAR(`enrolment_date`);
+
+
+
+
+SELECT COUNT(*) AS `total`, `office_address`
+FROM `teachers`
+GROUP BY `office_address`
+ORDER BY `total` DESC
+
+
+
+
+SELECT AVG (`vote`) AS `avg_vote`, `exam_id`
+FROM `exam_student`
+GROUP BY `exam_id`
+
+
+
+
+SELECT COUNT(`degrees`.`id`) AS `degrees_number`, `department_id`, `departments`.`name`
+FROM `degrees`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+GROUP BY `department_id`

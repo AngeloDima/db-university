@@ -1,0 +1,75 @@
+SNACK 1
+SELECT *
+FROM `students`
+INNER JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+WHERE `degrees`.`name` = 'Corso di laurea in economia';
+
+
+SNACK 2
+SELECT *
+FROM `degrees`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `degrees`.`level` =  'magistrale';
+
+
+SNACK 3
+SELECT *
+FROM `courses`
+INNER JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+WHERE `course_teacher`.`teacher_id` = 44;
+
+
+
+SNACK 4
+SELECT *
+FROM `courses`
+INNER JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+WHERE `teachers`.`name` = 'fulvio' AND `teachers`.`surname`= 'Amato'
+
+
+
+SNACK 5
+SELECT `students`.`name`, `students`.`surname`, `students`.`degree_id`, `degrees`.*, `departments`.`name` AS `departments_name`
+FROM `students`
+INNER JOIN `degrees`
+ON `students`.`degree_id` = `degrees`.`id`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+ORDER BY `students`.`surname`, `students`.`name`;
+
+
+
+SNACK 6
+SELECT `degrees`.`name`  AS `degree_name`, `courses`.`name` AS `course_name`, `teachers`.`name` AS `teacher_name`
+FROM `degrees`
+INNER JOIN `courses`
+ON `courses`.`degree_id` = `degrees`.`id`
+INNER JOIN `course_teacher`
+ON `courses`.`id` = `course_teacher`.`course_id`
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+
+
+
+SNACK 7
+SELECT `teachers`.`name`, `teachers`.`surname`
+FROM `teachers`
+INNER JOIN `course_teacher`
+ON `course_teacher`.`teacher_id` = `course_teacher`.`teacher_id`
+INNER JOIN `courses`
+ON `course_teacher`.`course_id` = `courses`.`id`
+INNER JOIN `degrees`
+ON `course_teacher`.`course_id` = `courses`.`id`
+INNER JOIN `departments`
+ON `departments`.`id` = `degrees`.`department_id`
+WHERE `departments`.`name` = 'dipartimento di matematica';
+
+
+
+
